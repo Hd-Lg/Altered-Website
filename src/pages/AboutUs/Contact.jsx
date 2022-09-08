@@ -5,11 +5,8 @@ import { SiElement } from "react-icons/si";
 
 export default function Contact() {
 	return (
-		<section className="mx-8 pt-6 text-left mb-10 md:h-screen md:bg-red-500">
-			<h2
-				id="contact"
-				className="font-bold text-center text-2xl md:text-5xl md:ml-7 md:mt-10"
-			>
+		<section className="mx-8 pt-6 text-left mb-10 md:h-screen">
+			<h2 className="font-bold text-center text-2xl md:text-5xl md:ml-7 md:mt-10">
 				Contact Us
 			</h2>
 			<div className=" mt-5 md:justify-evenly md:flex ">
