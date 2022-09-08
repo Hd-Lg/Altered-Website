@@ -1,0 +1,12 @@
+.copyright {
+	letter-spacing: 0.05em;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	-ms-writing-mode: tb-rl;
+	writing-mode: vertical-rl;
+	-webkit-text-orientation: mixed;
+	text-orientation: mixed;
+	display: flex;
+	align-items: center;
+}
