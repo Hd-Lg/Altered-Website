@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
 	return (
@@ -8,10 +9,10 @@ export default function Footer() {
 			</div> */}
 			<ul className="md:flex b-5 md:justify-evenly">
 				<li>
-					<a href="#">Terms of Services</a>
+					<Link to={"/legals"}>Terms of Services</Link>
 				</li>
 				<li>
-					<a href="#">Privacy Policy</a>
+					<Link to={"/legals"}>Privacy Policy</Link>
 				</li>
 				<li>
 					<a href="/aboutus">Contact Us</a>
