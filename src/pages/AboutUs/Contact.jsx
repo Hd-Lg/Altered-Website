@@ -10,18 +10,20 @@ export default function Contact() {
 				Contact Us
 			</h2>
 			<div className=" mt-5 md:justify-evenly md:flex ">
-				<p className="flex  flex-rowalign-middle mt-1">
-					<AiOutlineMail />
+				<div className="flex flex-row w-1/3 mt-1">
+					<span className="w-1/3">
+						<AiOutlineMail />
+					</span>
 					<a
-						className=" hover:text-blue-500 ml-1 "
+						className=" w-2/3 hover:text-blue-500 ml-1 "
 						href="mailto:contact@altered-blockchain.com"
 						target="_blank"
 						rel="noreferrer"
 					>
 						contact@altered-blockchain.com
 					</a>
-				</p>
-				<p className="flex flex-row mt-1">
+				</div>
+				<div className="flex flex-row w-1/3  mt-1">
 					<BsTwitter />
 					<a
 						className="hover:text-blue-500 ml-1 "
@@ -31,7 +33,7 @@ export default function Contact() {
 					>
 						Altered-Blockchain
 					</a>
-				</p>
+				</div>
 				<p className="flex flex-row b mt-1">
 					<SiElement />
 					<a

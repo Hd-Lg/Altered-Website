@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-export default function ProjectDetails() {
+const urlAPI =
+	"https://api.coingecko.com/api/v3/coins/noia-network?localization=false&tickers=false&market_data=true&community_data=true";
+
+export default function ProjectDetails({ project }) {
+	const [dataApi, setDataApi] = useState([]);
+
+	useEffect(() => {
+		axios.get(urlAPI).then((response) => {
+			setDataApi(response.data);
+		});
+	}, []);
+
+	if (!dataApi) return null;
+	console.log(dataApi.symbol);
+
 	return (
 		<div className="flex flex-col lg:flex-row">
 			{/* Group 1 - Image & Price */}
@@ -8,19 +23,25 @@ export default function ProjectDetails() {
 				{/* Image */}
 				<div className="flex grid-cols-2 lg:justify-center">
 					{/* Left side - Image */}
-					<img className="my-auto" src="#" alt="logo" />
+					<img className="my-auto" src={"#"} alt="logo" />
 					{/* Right side - Text */}
 					<div className="ml-2">
-						<h3 className="font-extrabold text-xl">Syntropy</h3>
+						<h3 className="font-extrabold text-xl">
+							{dataApi.name}
+						</h3>
 						<p className="text-gray-400 text-xs text-center">
-							NOIA / USD
+							<span className="uppercase">{dataApi.symbol}</span>{" "}
+							/ USD
 						</p>
 					</div>
 				</div>
 				{/* Price */}
 				<div className="mt-4 flex flex-col lg:flex-row lg:justify-center">
-					<p className="font-black text-2xl">$0.0555609</p>
-					<p className="text-center">(Var%)</p>
+					<p className="font-black text-2xl">$</p>
+					<p className="text-center">
+						(%)
+						{console.log(dataApi.price_change_percentage_24h)}
+					</p>
 				</div>
 			</div>
 			{/* Group 2 - Project Details */}
@@ -29,14 +50,22 @@ export default function ProjectDetails() {
 				<div>
 					<h3 className="text-lg font-bold mt-2">Why Syntropy?</h3>
 					<p className="text-left text">
-						Lorem ipsum dolor sit, amet consectetur adipisicing
-						elit. Accusantium non voluptatum repellendus repudiandae
-						consectetur assumenda beatae delectus sed fuga neque,
-						minus maiores, quod officia distinctio aut fugit
-						voluptate, ab molestias.
+						Syntropy is transforming the public internet into a
+						secure and user-centric internet through a unifying
+						layer where encryption and optimized performance are
+						built-in and automatically enabled for anything and
+						everything connected to it.
+					</p>
+					<p className="text-left text">
+						{" "}
+						We were impressed by the team, the founders and their
+						support (from well known people in the cryptoverse and
+						telecom industry). The technology behind the DARP nodes
+						is patented. They already have impressive partnership
+						with an important ISP and also with a big customer.
 					</p>
 					<h3 className="text-lg font-bold mt-2">Our Role</h3>
-					<p>We are validator for this project. We run one server.</p>
+					<p>We are validator for this project.</p>
 				</div>
 				{/* Line Separator */}
 				<div className="border-b-2 my-2"></div>
@@ -48,7 +77,9 @@ export default function ProjectDetails() {
 						</h3>
 						<div className="flex justify-between">
 							<p>Market Cap Rank</p>
-							<p className="text-sm">#586</p>
+							<p className="text-sm">
+								#{dataApi.market_cap_rank}
+							</p>
 						</div>
 						<div className="flex justify-between">
 							<p>Market Cap</p>

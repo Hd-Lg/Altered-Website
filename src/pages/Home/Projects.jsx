@@ -7,10 +7,8 @@ export default function Projects() {
 				Projects We Support
 			</h2>
 			<p className="text-gray-500 md:text-xl md:mt-3">
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum
-				nostrum sequi blanditiis beatae dolores molestiae assumenda
-				pariatur! Vero, odit accusamus aperiam, sapiente ut in possimus
-				nostrum temporibus aliquam id numquam.
+				Have a quick look at some projects we currently or plan to
+				support:
 			</p>
 		</section>
 	);

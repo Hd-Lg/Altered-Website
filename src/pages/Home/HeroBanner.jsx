@@ -11,10 +11,15 @@ export default function HeroBanner() {
 				Welcome
 			</h1>
 			<p className="text-gray-500 md:mt-24 md:text-xl">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Voluptate, sit? Explicabo autem consequuntur quidem deleniti
-				aperiam voluptatem minus temporibus at? Et praesentium
-				accusantium beatae repellat aliquid. Dolore harum maiores quasi.
+				We are <strong>Validators</strong>, we run
+				<strong> Stake Pool</strong> and <strong>Masternodes </strong>
+				for various blockchain projects in which we are convince of
+				their potential to grow, develop and bring change.
+			</p>
+			<p className="text-gray-500 md:mt-10 md:text-xl">
+				We know it's important to choose a reliable validator when
+				stacking your cryptocurrencies. Become our partner to grow with
+				us in this new world full of opportunities.
 			</p>
 		</section>
 	);

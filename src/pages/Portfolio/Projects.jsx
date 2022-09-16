@@ -8,16 +8,20 @@ export default function Projects() {
 			<div>
 				<div className="grid grid-cols-2 text-center mx-auto">
 					<div className="border-2 border-b-0 border-gray-300 rounded-tl-md p-3 hover:bg-blue-400 cursor-pointer">
-						<button type="button">Project 1</button>
+						<button type="button">Syntropy</button>
 					</div>
 					<div className="border-2 border-l-0 border-b-0 border-gray-300 rounded-tr-md  p-3 hover:bg-blue-400 cursor-pointer ">
-						<button type="button">Project 2</button>
+						<button type="button">Cardano</button>
 					</div>
-					<div className="border-2 border-gray-300 rounded-bl-md p-3 hover:bg-blue-400 cursor-pointer">
-						<button type="button">Project 3</button>
+					<div className="border-2 border-gray-300 rounded-bl-md p-3">
+						<button type="button" disabled>
+							Project 3
+						</button>
 					</div>
-					<div className="border-2 border-l-0 border-gray-300 rounded-br-md p-3 hover:bg-blue-400 cursor-pointer">
-						<button type="button">Project 4</button>
+					<div className="border-2 border-l-0 border-gray-300 rounded-br-md p-3">
+						<button type="button" disabled>
+							Project 4
+						</button>
 					</div>
 				</div>
 			</div>

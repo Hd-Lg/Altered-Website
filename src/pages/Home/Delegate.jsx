@@ -1,4 +1,7 @@
 import React from "react";
+import Card from "./Card";
+
+import { BiServer } from "react-icons/bi";
 
 export default function Delegate() {
 	return (
@@ -7,13 +10,30 @@ export default function Delegate() {
 				Why Delegate With Us?
 			</h2>
 			<p className="text-gray-500 md:text-xl md:mt-3">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-				Repellat maxime officia laborum vel et! Consectetur quod,
-				perspiciatis quisquam repudiandae dolorum iste! Excepturi,
-				voluptates placeat aperiam ullam veritatis voluptatem rerum
-				error?
+				We aim to provide enterprise-class stability and performance for
+				our servers by using an hybrid model between dedicated and
+				virtual ones in multiple data centers around the world.
 			</p>
-			{/* Create horizontal button to show qualities */}
+			<p className="text-gray-500 md:text-xl md:mt-3">
+				Whenever the needs of the blockchain projects change, our setup
+				will scale easily to exceed them providing us with a safety
+				margin for our operations.
+			</p>
+
+			<Card text="Best Server" icon={<BiServer />} />
+			<Card text="Best Server" icon={<BiServer />} />
+			<Card text="Best Server" icon={<BiServer />} />
+			<Card text="Best Server" icon={<BiServer />} />
+			<Card text="Best Server" icon={<BiServer />} />
+			<Card text="Best Server" icon={<BiServer />} />
+
+			<h4 className="my-5 font-bold text-lg md:text-xl md:ml-7">
+				Worldwide Infrastructure
+			</h4>
+			<p className="text-gray-500 md:text-xl md:mt-3">
+				We run our servers in various geographical zone through various
+				providers.
+			</p>
 		</section>
 	);
 }
