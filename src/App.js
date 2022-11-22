@@ -5,7 +5,7 @@ import { Copyright, Footer, Navbar } from "./components";
 
 export default function App() {
 	return (
-		<div>
+		<div className="scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
 			<Navbar />
 			<Outlet />
 			<Copyright />

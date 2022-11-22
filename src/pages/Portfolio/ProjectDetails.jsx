@@ -1,21 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-const urlAPI =
-	"https://api.coingecko.com/api/v3/coins/noia-network?localization=false&tickers=false&market_data=true&community_data=true";
-
-export default function ProjectDetails({ project }) {
-	const [dataApi, setDataApi] = useState([]);
-
-	useEffect(() => {
-		axios.get(urlAPI).then((response) => {
-			setDataApi(response.data);
-		});
-	}, []);
-
-	if (!dataApi) return null;
-	console.log(dataApi.symbol);
-
+export default function ProjectDetails({ project, data }) {
 	return (
 		<div className="flex flex-col lg:flex-row">
 			{/* Group 1 - Image & Price */}
@@ -23,31 +8,37 @@ export default function ProjectDetails({ project }) {
 				{/* Image */}
 				<div className="flex grid-cols-2 lg:justify-center">
 					{/* Left side - Image */}
-					<img className="my-auto" src={"#"} alt="logo" />
+					<img
+						className="my-auto"
+						src={data.image.small}
+						alt="logo"
+					/>
 					{/* Right side - Text */}
 					<div className="ml-2">
-						<h3 className="font-extrabold text-xl">
-							{dataApi.name}
-						</h3>
+						<h3 className="font-extrabold text-xl">{data.name}</h3>
 						<p className="text-gray-400 text-xs text-center">
-							<span className="uppercase">{dataApi.symbol}</span>{" "}
-							/ USD
+							<span className="uppercase">{data.symbol}</span> /
+							USD
 						</p>
 					</div>
 				</div>
 				{/* Price */}
 				<div className="mt-4 flex flex-col lg:flex-row lg:justify-center">
-					<p className="font-black text-2xl">$</p>
+					<p className="font-black text-2xl">
+						$ {data.market_data.current_price.usd}
+					</p>
 					<p className="text-center">
-						(%)
-						{console.log(dataApi.price_change_percentage_24h)}
+						{Math.floor(
+							data.market_data.price_change_percentage_24h
+						)}
+						%/24H
 					</p>
 				</div>
 			</div>
 			{/* Group 2 - Project Details */}
 			<div>
 				{/* Link with AB */}
-				<div>
+				{/* <div>
 					<h3 className="text-lg font-bold mt-2">Why Syntropy?</h3>
 					<p className="text-left text">
 						Syntropy is transforming the public internet into a
@@ -66,7 +57,7 @@ export default function ProjectDetails({ project }) {
 					</p>
 					<h3 className="text-lg font-bold mt-2">Our Role</h3>
 					<p>We are validator for this project.</p>
-				</div>
+				</div> */}
 				{/* Line Separator */}
 				<div className="border-b-2 my-2"></div>
 				{/* Project Details */}
@@ -77,13 +68,13 @@ export default function ProjectDetails({ project }) {
 						</h3>
 						<div className="flex justify-between">
 							<p>Market Cap Rank</p>
-							<p className="text-sm">
-								#{dataApi.market_cap_rank}
-							</p>
+							<p className="text-sm">#{data.market_cap_rank}</p>
 						</div>
 						<div className="flex justify-between">
 							<p>Market Cap</p>
-							<p className="text-sm">$26,670,190</p>
+							<p className="text-sm">
+								{data.market_data.market_cap.usd}
+							</p>
 						</div>
 						<div className="flex justify-between">
 							<p>24H Volume</p>
@@ -92,14 +83,6 @@ export default function ProjectDetails({ project }) {
 						<div className="flex justify-between">
 							<p>24H High/Low</p>
 							<p className="text-sm">$0.057780/$0.053730</p>
-						</div>
-						<div className="flex justify-between">
-							<p>Circulating Supply</p>
-							<p className="text-sm">479,487,714 </p>
-						</div>
-						<div className="flex justify-between">
-							<p>Total Supply</p>
-							<p className="text-sm">1,000,000,000</p>
 						</div>
 					</div>
 					<div className="border-b-2 my-2"></div>
@@ -112,11 +95,10 @@ export default function ProjectDetails({ project }) {
 							<p className="text-sm">
 								<a
 									className="hover:text-blue-400"
-									href="https://www.syntropynet.com/"
+									href={data.links.homepage[0]}
 									target="_blank"
-									rel="noreferrer"
-								>
-									Syntropynet.com
+									rel="noreferrer">
+									{data.links.homepage[0]}
 								</a>
 							</p>
 						</div>
@@ -125,10 +107,9 @@ export default function ProjectDetails({ project }) {
 							<p className="text-sm">
 								<a
 									className="hover:text-blue-400"
-									href="https://medium.com/syntropynet"
+									href={data.links.announcement_url[0]}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									Medium
 								</a>
 							</p>
@@ -138,11 +119,10 @@ export default function ProjectDetails({ project }) {
 							<p className="text-sm">
 								<a
 									className="hover:text-blue-400"
-									href="https://twitter.com/Syntropynet"
+									href={`https://twitter.com/${data.links.twitter_screen_name}`}
 									target="_blank"
-									rel="noreferrer"
-								>
-									@Syntropynet
+									rel="noreferrer">
+									@{data.links.twitter_screen_name}
 								</a>
 							</p>
 						</div>
@@ -151,11 +131,11 @@ export default function ProjectDetails({ project }) {
 							<p className="text-sm">
 								<a
 									className="hover:text-blue-400"
-									href="https://t.me/SyntropyNet"
+									href={`https://t.me/${data.links.telegram_channel_identifier}`}
 									target="_blank"
-									rel="noreferrer"
-								>
-									t.me/SyntopyNet
+									rel="noreferrer">
+									t.me/
+									{data.links.telegram_channel_identifier}
 								</a>
 							</p>
 						</div>
