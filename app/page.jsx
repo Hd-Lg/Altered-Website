@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Card from './Card';
+import Image from "next/image";
+import Card from "./Card";
 
 import {
 	circle_stack,
@@ -9,9 +9,10 @@ import {
 	magnifying_glass,
 	server,
 	shield,
-} from '../assets';
-import Altered_Blockchain from '../assets/Altered_Blockchain-min.svg';
-import Welcome from './Welcome';
+} from "../assets";
+import Altered_Blockchain from "../assets/Altered_Blockchain-min.svg";
+import Welcome from "./Welcome";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -25,30 +26,47 @@ export default function Home() {
 				</div>
 				<p className='text-gray-500'>
 					We are <strong>Validators</strong>, we run
-					<strong> Stake Pool</strong> and{' '}
-					<strong>Masternodes </strong>
-					for various blockchain projects in which we are convince of
-					their potential to grow, develop and bring change.
+					<strong> Stake Pool</strong> and <strong>Masternodes </strong>
+					for various blockchain projects in which we are convince of their
+					potential to grow, develop and bring change.
 				</p>
 				<p className='text-gray-500'>
-					We know it&apos;s important to choose a reliable validator
-					when stacking your cryptocurrencies. Become our partner to
-					grow with us in this new world full of opportunities.
+					We know it&apos;s important to choose a reliable validator when
+					stacking your cryptocurrencies. Become our partner to grow with us in
+					this new world full of opportunities.
 				</p>
 			</section>
+			<section className='mt-16 space-y-6 text-center max-w-5xl mx-auto'>
+				<h2 className='font-semibold'>Our Projects</h2>
+				<div className='cardMorphism grid grid-cols-2 space-y-2 rounded-lg bg-slate-100 p-5'>
+					<Link href={"/portfolio"}>
+						<h3>Syntropy</h3>
+						<p className='text-sm text-gray-500'>Learn more</p>
+					</Link>
+					<Link href={"/portfolio"}>
+						<h3>Cardano</h3>
+						<p className='text-sm text-gray-500'>Learn more</p>
+					</Link>
+					<Link href={"/portfolio"}>
+						<h3>Oxen</h3>
+						<p className='text-sm text-gray-500'>Learn more</p>
+					</Link>
+					<Link href={"/portfolio"}>
+						<h3>Mysterium Network</h3>
+						<p className='text-sm text-gray-500'>Learn more</p>
+					</Link>
+				</div>
+			</section>
 			<section className='mt-16 space-y-6 text-center'>
-				<h2 className='font-semibold text-center'>
-					Why Delegate With Us?
-				</h2>
+				<h2 className='font-semibold text-center'>Why Delegate With Us?</h2>
 				<p className='text-gray-500'>
-					We aim to provide enterprise-class stability and performance
-					for our servers by using an hybrid model between dedicated
-					and virtual ones in multiple data centers around the world.
+					We aim to provide enterprise-class stability and performance for our
+					servers by using an hybrid model between dedicated and virtual ones in
+					multiple data centers around the world.
 				</p>
 				<p className='text-gray-500'>
-					Whenever the needs of the blockchain projects change, our
-					setup will scale easily to exceed them providing us with a
-					margin of operations.
+					Whenever the needs of the blockchain projects change, our setup will
+					scale easily to exceed them providing us with a margin of operations.
 				</p>
 
 				<div className='space-y-3 md:grid md:grid-cols-2 md:max-w-4xl md:space-x-4 mx-auto'>
@@ -65,8 +83,8 @@ export default function Home() {
 
 				<h3 className='font-medium'>Worldwide Infrastructure</h3>
 				<p className='text-gray-500'>
-					We run our servers in various geographical zone through
-					various providers.
+					We run our servers in various geographical zone through various
+					providers.
 				</p>
 			</section>
 		</div>
